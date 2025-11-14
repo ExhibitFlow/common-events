@@ -1,1 +1,5 @@
+com/exhibitflow/common_events/constants/EventTopics.class
+com/exhibitflow/common_events/stall/StallReservedEvent.class
 com/exhibitflow/common_events/App.class
+com/exhibitflow/common_events/constants/EventTypes.class
+com/exhibitflow/common_events/base/BaseEvent.class
