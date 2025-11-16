@@ -22,7 +22,7 @@
     <repository>
       <id>github</id>
       <name>GitHub ExhibitFlow Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/exhibitflow/common_events</url>
+      <url>https://maven.pkg.github.com/exhibitflow/common-events</url>
     </repository>
   </distributionManagement>
 
