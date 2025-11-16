@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     
 permissions:
-  contents: read
+  contents: write    # Changed from 'read' to 'write' - needed for creating releases
   packages: write
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
           echo "Publishing version: $VERSION"
 
       - name: Update pom.xml version
-        run: mvn versions:set -DnewVersion=${{ steps.version.outputs.VERSION }}
+        run: mvn versions:set -DnewVersion=${{ steps.version.outputs.VERSION }} -DgenerateBackupPoms=false
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -46,7 +46,7 @@ jobs:
         run: mvn --batch-mode clean package
 
       - name: Publish to GitHub Packages
-        run: mvn --batch-mode deploy
+        run: mvn --batch-mode deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
